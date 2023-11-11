@@ -4,15 +4,86 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>8D - Diligent</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #000000, #ffffff);
+            color: #ffffff;
+        }
+
+        header {
+            padding: 20px 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline;
+            margin-left: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 1.2em;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: #ff8adb;
+        }
+
+        .main-content {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        h2 {
+            color: #ffffff;
+        }
+
+        p {
+            color: #aaaaaa;
+        }
+    </style>
+    <title>Kelas Elegan</title>
 </head>
 <body>
-    <div class="intro-container" id="popup" onclick="redirectToNextPage()">
-        <h1>8D, Diligent</h1>
-        <p>Tap anywhere to continue</p>
-    </div>
+    <header>
+        <div class="container">
+            <h1>Kelas Elegan</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Beranda</a></li>
+                    <li><a href="#">Album 1</a></li>
+                    <li><a href="#">Album 2</a></li>
+                    <li><a href="#">Album 3</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <script src="index.js"></script>
+    <section class="main-content container">
+        <h2>Selamat Datang di Kelas Elegan</h2>
+        <p>Di sini Anda dapat menemukan berbagai momen indah dari kehidupan kami.</p>
+    </section>
 </body>
 </html>
