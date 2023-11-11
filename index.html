@@ -4,28 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8D - Diligent</title>
     <link rel="stylesheet" href="styles.css">
+    <title>8D - Diligent</title>
 </head>
 <body>
-    <div id="popup" class="popup" onclick="redirectToNextPage()">
+    <div class="intro-container" id="popup" onclick="redirectToNextPage()">
         <h1>8D, Diligent</h1>
+        <p>Tap anywhere to continue</p>
     </div>
 
-    <script>
-        let popup = document.getElementById('popup');
-
-        function changeColor() {
-            let colors = ['#ff8adb', '#8affa5', '#a5a5a5', '#f5ff8a']; // Add more colors if needed
-            let randomColor = colors[Math.floor(Math.random() * colors.length)];
-            popup.style.color = randomColor;
-        }
-
-        setInterval(changeColor, 1000);
-
-        function redirectToNextPage() {
-            window.location.href = 'next.html';
-        }
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
