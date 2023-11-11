@@ -60,20 +60,23 @@
             background-image: url('fotran.jpg');
         }
 
-        .running-text {
-            margin-top: 30px;
-            font-size: 1.2em;
-            animation: rainbowText 5s infinite;
+        .running-text-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+            overflow: hidden;
         }
 
-        @keyframes rainbowText {
-            0% { color: #ff0000; }
-            16% { color: #ff8000; }
-            33% { color: #ffff00; }
-            50% { color: #80ff00; }
-            66% { color: #00ff80; }
-            83% { color: #0080ff; }
-            100% { color: #8000ff; }
+        .running-text {
+            font-size: 1.2em;
+            animation: moveText 10s linear infinite;
+        }
+
+        @keyframes moveText {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
 
         #audioControls {
@@ -92,16 +95,18 @@
     </header>
 
     <div class="button-container">
-        <div id="qnaButton" class="button" onclick="playSound('Lance_mode_sad.mp3')"></div>
-        <div id="characteristicsButton" class="button" onclick="playSound('Lance_mode_sad.mp3')"></div>
-        <div id="albumButton" class="button" onclick="playSound('Lance_mode_sad.mp3')"></div>
+        <div id="qnaButton" class="button" onclick="playSound('fart.mp3')"></div>
+        <div id="characteristicsButton" class="button" onclick="playSound('fart.mp3')"></div>
+        <div id="albumButton" class="button" onclick="playSound('fart.mp3')"></div>
     </div>
 
     <div class="container">
         <p>Well, kelas 8D? Yap!! Itu kami, kami punya tingkah laku yang absurd. Santai aja ya kalo ketemu kami, semua murid 8D santai dan gak ada yang nakal (Mungkin). Kadang sok cool, kadang sok iye. Fun fact aja, cewek disini lebih menjadi jadi dibanding cowok nya hahahahaha. Yaudah segitu aja lah kira-kira, malas ngetik :v</p>
     </div>
 
-    <div class="running-text">Website dibuat saat gabut dan juga yang bikin masih pemula. Makanya gak terlalu bagus</div>
+    <div class="running-text-container">
+        <p class="running-text">Well, kelas 8D? Yap!! Itu kami, kami punya tingkah laku yang absurd. Santai aja ya kalo ketemu kami, semua murid 8D santai dan gak ada yang nakal (Mungkin). Kadang sok cool, kadang sok iye. Fun fact aja, cewek disini lebih menjadi jadi dibanding cowok nya hahahahaha. Yaudah segitu aja lah kira-kira, malas ngetik :v</p>
+    </div>
 
     <div id="audioControls">
         <button onclick="toggleAudio()">Play/Pause</button>
