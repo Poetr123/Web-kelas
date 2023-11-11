@@ -36,6 +36,7 @@
 
         .button {
             background-color: transparent;
+            background-size: cover;
             width: 200px;
             height: 200px;
             border: none;
@@ -48,15 +49,15 @@
         }
 
         #qnaButton {
-            background-color: #292929;
+            background-image: url('fotbarall.jpg');
         }
 
         #characteristicsButton {
-            background-color: #292929;
+            background-image: url('fotce.jpg');
         }
 
         #albumButton {
-            background-color: #292929;
+            background-image: url('fotran.jpg');
         }
 
         .running-text {
@@ -73,6 +74,12 @@
             66% { color: #00ff80; }
             83% { color: #0080ff; }
             100% { color: #8000ff; }
+        }
+
+        #audioControls {
+            position: fixed;
+            top: 10px;
+            right: 10px;
         }
     </style>
     <title>Kelas 8D</title>
@@ -96,10 +103,26 @@
 
     <div class="running-text">Website dibuat saat gabut dan juga yang bikin masih pemula. Makanya gak terlalu bagus</div>
 
+    <div id="audioControls">
+        <button onclick="toggleAudio()">Play/Pause</button>
+    </div>
+
     <script>
+        var audio = new Audio('Lance_mode_sad.mp3');
+        audio.loop = true;
+
         function playSound(soundFile) {
-            var audio = new Audio(soundFile);
+            audio.pause();
+            audio.src = soundFile;
             audio.play();
+        }
+
+        function toggleAudio() {
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
         }
     </script>
 </body>
