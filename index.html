@@ -4,123 +4,82 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelas 8D</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #1a1a1a;
-            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
         }
 
-        header {
-            background-color: #121212;
-            padding: 20px 0;
+        .background-container {
+            background: linear-gradient(to bottom right, #FFD700, #FF1493);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
-        .container {
-            width: 80%;
-            margin: 0 auto;
-        }
-
-        h1 {
-            margin: 0;
+        .header {
+            color: #ffffff;
+            font-size: 3em;
         }
 
         .button-container {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 50px;
+            margin-top: 20px;
         }
 
         .button {
-            background-color: transparent;
-            background-size: cover;
-            width: 200px;
-            height: 200px;
-            border: none;
-            cursor: pointer;
-            transition: transform 0.3s ease-in-out;
+            background-color: #4CAF50;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.5em;
+            margin: 10px;
+            border-radius: 10px;
+            transition: background-color 0.3s;
         }
 
         .button:hover {
-            transform: scale(1.1);
+            background-color: #45a049;
         }
 
-        #qnaButton {
-            background-image: url('fotbarall.jpg');
-        }
-
-        #characteristicsButton {
-            background-image: url('fotce.jpg');
-        }
-
-        #albumButton {
-            background-image: url('fotran.jpg');
-        }
-
-        .running-text-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            white-space: nowrap;
-            overflow: hidden;
-        }
-
-        .running-text {
-            font-size: 1.2em;
-            animation: moveText 10s linear infinite;
-        }
-
-        @keyframes moveText {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-
-        #audioControls {
+        #audioControl {
             position: fixed;
-            top: 10px;
+            bottom: 10px;
             right: 10px;
+            padding: 10px;
+            font-size: 1em;
+            background-color: #3498db;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #audioControl:hover {
+            background-color: #2980b9;
         }
     </style>
-    <title>Kelas 8D</title>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Kelas 8D</h1>
+    <div class="background-container">
+        <h1 class="header">Kelas 8D</h1>
+        <div class="button-container">
+            <a href="https://ngl.link/8d_itshere?fbclid=PAAaagxVdafrL01J7_8ItghFAbbtmXHxMJN5iQY8Pu9gsPoch7FGx44PSZcDU" class="button" target="_blank">NGL</a>
+            <a href="feedback.html" class="button">Saran dan Masukkan</a>
+            <a href="cbg.html" class="button">Ganti Background</a>
         </div>
-    </header>
-
-    <div class="button-container">
-        <div id="qnaButton" class="button" onclick="playSound('fart.mp3')"></div>
-        <div id="characteristicsButton" class="button" onclick="playSound('fart.mp3')"></div>
-        <div id="albumButton" class="button" onclick="playSound('fart.mp3')"></div>
     </div>
 
-    <div class="container">
-        <p>Well, kelas 8D? Yap!! Itu kami, kami punya tingkah laku yang absurd. Santai aja ya kalo ketemu kami, semua murid 8D santai dan gak ada yang nakal (Mungkin). Kadang sok cool, kadang sok iye. Fun fact aja, cewek disini lebih menjadi jadi dibanding cowok nya hahahahaha. Yaudah segitu aja lah kira-kira, malas ngetik :v</p>
-    </div>
-
-    <div class="running-text-container">
-        <p class="running-text">Well, kelas 8D? Yap!! Itu kami, kami punya tingkah laku yang absurd. Santai aja ya kalo ketemu kami, semua murid 8D santai dan gak ada yang nakal (Mungkin). Kadang sok cool, kadang sok iye. Fun fact aja, cewek disini lebih menjadi jadi dibanding cowok nya hahahahaha. Yaudah segitu aja lah kira-kira, malas ngetik :v</p>
-    </div>
-
-    <div id="audioControls">
-        <button onclick="toggleAudio()">Play/Pause</button>
-    </div>
+    <audio id="audio" src="Lance_mode_sad.mp3" loop></audio>
+    <button id="audioControl" onclick="toggleAudio()">Play/Pause Backsound</button>
 
     <script>
-        var audio = new Audio('Lance_mode_sad.mp3');
-        audio.loop = true;
-
-        function playSound(soundFile) {
-            audio.pause();
-            audio.src = soundFile;
-            audio.play();
-        }
+        var audio = document.getElementById('audio');
 
         function toggleAudio() {
             if (audio.paused) {
