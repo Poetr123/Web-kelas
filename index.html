@@ -84,7 +84,7 @@
         var audio = document.getElementById('audio');
         var audioControl = document.createElement('button');
         audioControl.className = 'audio-control';
-        audioControl.innerHTML = '<img src="playvid.png" alt="Play">';
+        audioControl.innerHTML = '<img src="playvid.jpg" alt="Play">';
         audioControl.onclick = function () {
             toggleAudio();
         };
@@ -93,10 +93,10 @@
         function toggleAudio() {
             if (audio.paused) {
                 audio.play();
-                audioControl.innerHTML = '<img src="pausevid.png" alt="Pause">';
+                audioControl.innerHTML = '<img src="pausevid.jpg" alt="Pause">';
             } else {
                 audio.pause();
-                audioControl.innerHTML = '<img src="playvid.png" alt="Play">';
+                audioControl.innerHTML = '<img src="playvid.jpg" alt="Play">';
             }
         }
     </script>
