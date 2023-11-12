@@ -3,102 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8D Site</title>
+    <title>Public Chat</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to right, #222, #666, #aaa);
-            color: #fff;
+        #chat-box {
+            height: 300px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 10px;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            border-radius: 8px;
-        }
-
-        .header {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-
-        .running-text {
-            font-size: 1.5em;
-            animation: blink 1s infinite;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 1em;
-            margin: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            background-color: #3498db;
-            color: #fff;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .button:hover {
-            background-color: #2980b9;
-        }
-
-        @keyframes blink {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.5;
-            }
-        }
-
-        .audio-control {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
+        #input-box {
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">8D Site</div>
-        <p class="running-text">Website dibuat saat gabut, makanya gak bagus bagus banget</p>
-        <button class="button" onclick="toggleAudio()">Putar Musik</button>
+    <div id="chat-box"></div>
+    <div id="input-box">
+        <input type="text" id="name" placeholder="Nama">
+        <input type="text" id="message" placeholder="Pesan">
+        <button onclick="sendMessage()">Kirim</button>
     </div>
 
-    <audio id="audio" loop>
-        <source src="Lance_mode_sad.mp3" type="audio/mp3">
-        <source src="spongebob-ukulele.mp3" type="audio/mp3">
-    </audio>
-
     <script>
-        var audio = document.getElementById('audio');
-        var audioControl = document.createElement('button');
-        audioControl.className = 'audio-control';
-        audioControl.innerHTML = '<img src="playvid.jpg" alt="Play">';
-        audioControl.onclick = function () {
-            toggleAudio();
-        };
-        document.body.appendChild(audioControl);
+        function sendMessage() {
+            var name = document.getElementById('name').value;
+            var message = document.getElementById('message').value;
 
-        function toggleAudio() {
-            if (audio.paused) {
-                audio.play();
-                audioControl.innerHTML = '<img src="pausevid.jpg" alt="Pause">';
-            } else {
-                audio.pause();
-                audioControl.innerHTML = '<img src="playvid.jpg" alt="Play">';
+            if (name && message) {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 201) {
+                        document.getElementById('message').value = '';
+                        loadChat();
+                    }
+                };
+
+                xhr.open('POST', 'https://api.github.com/repos/Poetr123/chat/issues', true);
+                xhr.setRequestHeader('Authorization', 'Bearer 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');
+                xhr.setRequestHeader('Content-Type', 'application/json');
+
+                var data = {
+                    title: name,
+                    body: message
+                };
+
+                xhr.send(JSON.stringify(data));
             }
         }
+
+        function loadChat() {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var issues = JSON.parse(xhr.responseText);
+                    var chatBox = document.getElementById('chat-box');
+                    chatBox.innerHTML = '';
+
+                    issues.forEach(function (issue) {
+                        chatBox.innerHTML += '<p><strong>' + issue.title + ':</strong> ' + issue.body + '</p>';
+                    });
+                }
+            };
+
+            xhr.open('GET', 'https://api.github.com/repos/Poetr123/chat/issues?state=open&per_page=20', true);
+            xhr.send();
+        }
+
+        setInterval(loadChat, 1000); // Perbarui chat setiap detik
     </script>
 </body>
 </html>
