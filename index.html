@@ -3,105 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Situs 8D (Diligent)</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            color: #ffffff;
-            background-image: url('bg8D.jpg');
-            background-size: cover; /* Menyesuaikan ukuran background */
-        }
-
-        .header {
-            position: relative;
-            padding: 20px;
-        }
-
-        .header h1 {
-            margin: 0;
-        }
-
-        #info {
-            color: red;
-            animation: floating 2s infinite;
-            margin-top: 20px; /* Menyesuaikan margin */
-        }
-
-        #musicBtn {
-            background-color: green;
-            color: #ffffff;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            margin-top: 10px; /* Menyesuaikan margin */
-        }
-
-        #musicBtn.red {
-            background-color: red;
-        }
-
-        #dateTime {
-            position: absolute;
-            top: 70px; /* Menyesuaikan posisi */
-            right: 20px;
-            color: black;
-        }
-
-        #menuBtn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            cursor: pointer;
-            font-size: 24px;
-            padding: 5px;
-            color: black;
-            z-index: 1; /* Menempatkan tombol di atas elemen-elemen lain */
-        }
-
-        .menu {
-            display: none;
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            background: linear-gradient(orange, green);
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-
-        .menu a {
-            display: block;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 10px;
-            margin: 5px 0;
-        }
-
-        @keyframes floating {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-    </style>
+    <title>Kelas 8D Adventure</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="header">
-        <div id="menuBtn" onclick="toggleMenu">&#9776;</div>
-        <h1>Situs 8D (Diligent)</h1>
-        <marquee id="dateTime" direction="left" behavior="scroll" scrollamount="3"></marquee>
-        <p id="info">Kelas 8D itu unik yagesya, karena ceweknya lebih menjadi dibanding cowoknya. Btw kalian dh follow akun Instagram kelas 8D belum?<br>Pencet <a href="https://instagram.com/_8d.diligent_?igshid=czhtd3Q2MGJ1N3Np" style="color: red; text-decoration: underline;" target="_blank">disini</a> buat langsung ke akun Instagram kami.</p>
-        <button id="musicBtn" onclick="toggleMusic()">Musik On</button>
-    </div>
+    <header>
+        <h1>Selamat Datang di Kelas 8D Adventure</h1>
+    </header>
 
-    <div class="menu" id="menu">
-        <a href="galeri.html">Galeri</a>
-        <a href="komentar.html">Komentar</a>
-    </div>
+    <section class="main-content">
+        <article class="animated">
+            <h2>Keunikan Kelas 8D</h2>
+            <p>Kelas 8D dikenal dengan keunikan dan keceriaannya. Kami bersama-sama menjalani petualangan seru dalam belajar.</p>
+            <img src="adventure.jpg" alt="Petualangan 8D">
+        </article>
+
+        <article class="animated">
+            <h2>Event Terbaru</h2>
+            <p>Ikuti event terbaru kami dan jangan lewatkan keseruannya. Lihat galeri foto untuk momen-momen tak terlupakan.</p>
+            <button class="cta"><a href="galeri.html">Lihat Galeri</a></button>
+        </article>
+    </section>
+
+    <section class="additional-info">
+        <h2>Komentar Teman-Teman 8D</h2>
+        <div id="comments" class="animated"></div>
+        <form id="commentForm">
+            <label for="name">Nama:</label>
+            <input type="text" id="name" required>
+            <label for="comment">Komentar:</label>
+            <textarea id="comment" required></textarea>
+            <button type="button" onclick="addComment()">Kirim Komentar</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Kelas 8D Adventure</p>
+    </footer>
 
     <script src="main.js"></script>
 </body>
