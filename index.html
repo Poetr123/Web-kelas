@@ -3,25 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tahap Pengembangan</title>
+    <title>8D Site</title>
     <style>
-        @keyframes floating {
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #222, #666, #aaa);
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+        }
+
+        .header {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .running-text {
+            font-size: 1.5em;
+            animation: blink 1s infinite;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1em;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: #fff;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+
+        @keyframes blink {
             0%, 100% {
-                transform: translateY(0);
+                opacity: 1;
             }
             50% {
-                transform: translateY(-10px);
+                opacity: 0.5;
             }
         }
 
-        .floating-text {
-            animation: floating 2s infinite;
-            font-size: 24px;
-            color: #3498db;
+        .audio-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <div class="floating-text">Dalam Pengembangan</div>
+    <div class="container">
+        <div class="header">8D Site</div>
+        <p class="running-text">Website dibuat saat gabut, makanya gak bagus bagus banget</p>
+        <button class="button" onclick="toggleAudio()">Putar Musik</button>
+    </div>
+
+    <audio id="audio" loop>
+        <source src="Lance_mode_sad.mp3" type="audio/mp3">
+        <source src="spongebob-ukulele.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        var audio = document.getElementById('audio');
+        var audioControl = document.createElement('button');
+        audioControl.className = 'audio-control';
+        audioControl.innerHTML = '<img src="playvid.png" alt="Play">';
+        audioControl.onclick = function () {
+            toggleAudio();
+        };
+        document.body.appendChild(audioControl);
+
+        function toggleAudio() {
+            if (audio.paused) {
+                audio.play();
+                audioControl.innerHTML = '<img src="pausevid.png" alt="Pause">';
+            } else {
+                audio.pause();
+                audioControl.innerHTML = '<img src="playvid.png" alt="Play">';
+            }
+        }
+    </script>
 </body>
 </html>
