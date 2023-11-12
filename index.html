@@ -1,1 +1,103 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situs 8D (Diligent)</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+            background-image: url('bg8D.jpg');
+        }
+
+        .header {
+            position: relative;
+            padding: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        #info {
+            color: red;
+            animation: floating 2s infinite;
+        }
+
+        #musicBtn {
+            background-color: green;
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        #musicBtn.red {
+            background-color: red;
+        }
+
+        #dateTime {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        #menuBtn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 24px;
+            padding: 5px;
+        }
+
+        .menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background: linear-gradient(orange, green);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .menu a {
+            display: block;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px;
+            margin: 5px 0;
+        }
+
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Situs 8D (Diligent)</h1>
+        <p id="info">Kelas 8D itu unik yagesya, karena ceweknya lebih menjadi dibanding cowoknya. Btw kalian dh follow akun Instagram kelas 8D belum?<br>Pencet <a href="https://instagram.com/_8d.diligent_?igshid=czhtd3Q2MGJ1N3Np" style="color: red; text-decoration: underline;" target="_blank">disini</a> buat langsung ke akun Instagram kami.</p>
+        <button id="musicBtn" onclick="toggleMusic()">Musik On</button>
+        <marquee id="dateTime" direction="left" behavior="scroll" scrollamount="3"></marquee>
+        <div id="menuBtn" onclick="toggleMenu">&#9776;</div>
+    </div>
+
+    <div class="menu" id="menu">
+        <a href="galeri.html">Galeri</a>
+        <a href="komentar.html">Komentar</a>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
