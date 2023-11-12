@@ -3,44 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelas 8D Adventure</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>My Links</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .link-item {
+            margin-bottom: 10px;
+        }
+
+        .link-item a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .link-item a:hover {
+            background-color: #2980b9;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Selamat Datang di Kelas 8D Adventure</h1>
-    </header>
+    <h1>My Links</h1>
 
-    <section class="main-content">
-        <article class="animated">
-            <h2>Keunikan Kelas 8D</h2>
-            <p>Kelas 8D dikenal dengan keunikan dan keceriaannya. Kami bersama-sama menjalani petualangan seru dalam belajar.</p>
-            <img src="adventure.jpg" alt="Petualangan 8D">
-        </article>
-
-        <article class="animated">
-            <h2>Event Terbaru</h2>
-            <p>Ikuti event terbaru kami dan jangan lewatkan keseruannya. Lihat galeri foto untuk momen-momen tak terlupakan.</p>
-            <button class="cta"><a href="galeri.html">Lihat Galeri</a></button>
-        </article>
-    </section>
-
-    <section class="additional-info">
-        <h2>Komentar Teman-Teman 8D</h2>
-        <div id="comments" class="animated"></div>
-        <form id="commentForm">
-            <label for="name">Nama:</label>
-            <input type="text" id="name" required>
-            <label for="comment">Komentar:</label>
-            <textarea id="comment" required></textarea>
-            <button type="button" onclick="addComment()">Kirim Komentar</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>&copy; 2023 Kelas 8D Adventure</p>
-    </footer>
-
-    <script src="main.js"></script>
+    <div class="links-container">
+        <div class="link-item">
+            <a href="https://example.com" target="_blank">Website</a>
+        </div>
+        <div class="link-item">
+            <a href="https://instagram.com/example" target="_blank">Instagram</a>
+        </div>
+        <!-- Add more link items as needed -->
+    </div>
 </body>
 </html>
