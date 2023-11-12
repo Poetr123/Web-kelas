@@ -11,6 +11,7 @@
             font-family: Arial, sans-serif;
             color: #ffffff;
             background-image: url('bg8D.jpg');
+            background-size: cover; /* Menyesuaikan ukuran background */
         }
 
         .header {
@@ -25,6 +26,7 @@
         #info {
             color: red;
             animation: floating 2s infinite;
+            margin-top: 20px; /* Menyesuaikan margin */
         }
 
         #musicBtn {
@@ -33,6 +35,7 @@
             border: none;
             padding: 10px;
             cursor: pointer;
+            margin-top: 10px; /* Menyesuaikan margin */
         }
 
         #musicBtn.red {
@@ -41,9 +44,9 @@
 
         #dateTime {
             position: absolute;
-            top: 20px;
+            top: 70px; /* Menyesuaikan posisi */
             right: 20px;
-            color: black; /* warna teks diubah menjadi hitam */
+            color: black;
         }
 
         #menuBtn {
@@ -53,7 +56,8 @@
             cursor: pointer;
             font-size: 24px;
             padding: 5px;
-            color: black;  /* Set warna teks menjadi hitam */
+            color: black;
+            z-index: 1; /* Menempatkan tombol di atas elemen-elemen lain */
         }
 
         .menu {
@@ -87,11 +91,11 @@
 </head>
 <body>
     <div class="header">
+        <div id="menuBtn" onclick="toggleMenu">&#9776;</div>
         <h1>Situs 8D (Diligent)</h1>
+        <marquee id="dateTime" direction="left" behavior="scroll" scrollamount="3"></marquee>
         <p id="info">Kelas 8D itu unik yagesya, karena ceweknya lebih menjadi dibanding cowoknya. Btw kalian dh follow akun Instagram kelas 8D belum?<br>Pencet <a href="https://instagram.com/_8d.diligent_?igshid=czhtd3Q2MGJ1N3Np" style="color: red; text-decoration: underline;" target="_blank">disini</a> buat langsung ke akun Instagram kami.</p>
         <button id="musicBtn" onclick="toggleMusic()">Musik On</button>
-        <marquee id="dateTime" direction="left" behavior="scroll" scrollamount="3"></marquee>
-        <div id="menuBtn" onclick="toggleMenu">&#9776;</div>
     </div>
 
     <div class="menu" id="menu">
